@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <audio src="sounds/boom.wav" controls class="boom"></audio>
+    <audio src="sounds/clap.wav" controls class="clap"></audio>
+    <audio src="sounds/hihat.wav" controls class="hihat"></audio>
+    <audio src="sounds/kick.wav" controls class="kick"></audio>
+    <audio src="sounds/openhat.wav" controls class="openhat"></audio>
+    <audio src="sounds/ride.wav" controls class="ride"></audio>
+    <audio src="sounds/snare.wav" controls class="snare"></audio>
+    <audio src="sounds/tink.wav" controls class="tink"></audio>
+    <audio src="sounds/tom.wav" controls class="tom"></audio>
+
+<script>
+const boomsound = document.querySelector('.clap');
+const clapsound = document.querySelector('.clap');
+const hihatsound = document.querySelector('.clap');
+const kicksound = document.querySelector('.clap');
+const openhatsound = document.querySelector('.clap');
+const ridesound = document.querySelector('.clap');
+const snaresound = document.querySelector('.clap');
+
+const chanel1=[];
+document.body.addEventListener('keypress',playAudio);
+const StartRecording=document.querySelector('.startRecording');
+
+
+
+
+function playAudio(e){
+    switch(e.code){
+        case 'KeyA':
+        clapsound.play();
+        clapsound.currentTime=0;
+        
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyS':
+
+        clapsound.play();
+        clapsound.currentTime=0;
+        
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyD':
+            
+        clapsound.play();
+        clapsound.currentTime=0;
+        
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyF':
+            
+        clapsound.play();
+        clapsound.currentTime=0;
+        
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyG':
+            
+        clapsound.play();
+        clapsound.currentTime=0;
+        const time=Date.now()
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyH':
+            
+        clapsound.play();
+        clapsound.currentTime=0;
+        
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyJ':
+            
+        clapsound.play();
+        clapsound.currentTime=0;
+       
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyK':
+            
+        clapsound.play();
+        clapsound.currentTime=0;
+        
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+        break 
+        case 'KeyL':
+            
+        clapsound.play();
+        clapsound.currentTime=0;
+        
+        chanel1.push({
+            code:e.code,
+            time:Date.now()
+        })
+
+
+    }
+    
+}
+
+
+</script>
+
+</body>
+</html>
