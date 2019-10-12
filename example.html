@@ -12,55 +12,60 @@
     <audio src="sounds/hihat.wav" controls class="aHihat"></audio>
     <div class="chanels"> 
         <div class="chanel1">
-    <button class="recording">Rec</button>
-    <button class="stopRec">Stop</button>
+    <button class="recording1">Rec</button>
+    <button class="stopRec1">Stop</button>
     </div>
 </div>
 <div class="chanels">
         <div class="chanel2"> 
-    <button class="recording2">Rec</button>
-    <button class="stopRec2">Stop</button>
+    <button class="recording">Rec</button>
+    <button class="stopRec">Stop</button>
         </div>
 </div>
     <script type="text/javascript">
-window.addEventListener('DOMContentLoaded', (event) => {
 
-
-
-    console.log('DOM fully loaded and parsed');
-});
-const clap = document.querySelector('.aClap');
+        const clap = document.querySelector('.aClap');
         const boom = document.querySelector('.aBoom');
         const hihat = document.querySelector('.aHihat');
+
+
 //events listeners
  
-// constructor chanels
-
-        
-function CreateChanel(recBtn){
-
-            this.nameChanel=recBtn.parentNode.className;
-            this.chanelsounds=[];
-            this.button=recBtn,
-            this.test=function(){
-                console.log(recBtn);
-                console.log(this.button);
-                
-            }
-
-            //this.button.addEventListener("click", this.test,false); //pierdoli sie
-           
-        }
-        const chanel1 =new CreateChanel(document.querySelector('.recording'));
+function CreateChanel(recBtn)
+    {
        
-        
-        CreateChanel.prototype.hello=function(){
-            return console.log('hello');
-        }
-        
-        document.querySelector('.recording').addEventListener('click',this.hello,false);
+        this.nameChanel=recBtn.parentNode.className;
+        this.chanelsounds=[];
+        this.button=recBtn,
+        this.test=function(){
+            console.log(recBtn);
+            
+    }
 
-            CreateChanel.prototype.startRec=function(){
+
+}
+let counter=0;
+document.querySelector('.recording1').addEventListener('click',function(){
+
+    
+    const chanel1 =new CreateChanel(document.querySelector('.recording'));
+    
+    
+    if(counter===0){
+        
+        
+        counter++;
+        console.log(counter);
+        counter++;
+        chanel1.startRec();
+    }
+        
+
+});
+
+// prototype chanels
+        
+CreateChanel.prototype.startRec=function(){
                 const that = this;
                 document.body.addEventListener('keypress',
                     function(e){
@@ -88,21 +93,12 @@ function CreateChanel(recBtn){
                             that.chanelsounds.push({
                                 key: e.code,
                                 time: time
-                            })}
-                        }
-                                );/*return*/;
-        
+                            })}});/*return*/;
+                            console.log(this.chanelsounds);
             }
-
             CreateChanel.prototype.stopRec=function(){
-
-                
-
+                return this.chanelsounds;
             }
-            
-
-
-       
     </script>
 </body>
 </html>
