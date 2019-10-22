@@ -1,137 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/CSS/reset.css">
     <link rel="stylesheet" href="/CSS/style.css">
-    <title>Drumkit</title>
+    <link rel="shortcut icon" href="/IMG/drum-set.png" type="image/x-icon">
+    <title>Drumii</title>
 </head>
+
 <body>
-    <audio src="sounds/boom.wav" controls class="aBoom"></audio>
-    <audio src="sounds/clap.wav" controls class="aClap"></audio>
-    <audio src="sounds/hihat.wav" controls class="aHihat"></audio>
-    <div class="chanels"> 
-        <div class="chanel1">
-    <button class="recording">Rec</button>
-    <button class="stopRec">Stop</button>
+    
+    <div class="channel">
+    <div class="channel1">
+            <div class="channel-drums">
+                    <h1 class="capital">Drumii</h1>
+                    <audio src="sounds/clap.wav" controls class="clap"></audio>
+                    <audio src="sounds/boom.wav" controls class="boom"></audio>
+                    <audio src="sounds/hihat.wav" controls class="hihat"></audio>
+                    <audio src="sounds/kick.wav" controls class="kick"></audio>
+                    <audio src="sounds/openhat.wav" controls class="openhat"></audio>
+                    <audio src="sounds/ride.wav" controls class="ride"></audio>
+                    <audio src="sounds/snare.wav" controls class="snare"></audio>
+                    <audio src="sounds/tink.wav" controls class="tink"></audio>
+                    <audio src="sounds/tom.wav" controls class="tom"></audio>
+                </div>
+                
+        <div class="firstchannel">
+            <h2>Channel 1</h2>
+        <div class="flexBtn-firstChannel">
+        <button class="channel1Rec">Recording</button>
+        <button class="channel1Playing">Playing</button>
+    </div>
+    </div>
     </div>
 </div>
-<div class="chanels">
-        <div class="chanel2"> 
-    <button class="recording2">Rec</button>
-    <button class="stopRec2">Stop</button>
-        </div>
+<div class="channel">
+    <div class="channel2">
+        <h2>Channel 2</h2>
+        <div class="flexBtn">
+        <button class="channel2Rec">Recording</button>
+        <button class="channel2Playing">Playing</button>
+    </div>
+    </div>
 </div>
-    <script type="text/javascript">
-    /*
-window.addEventListener('DOMContentLoaded', (event) => {
-
-
-
-    console.log('DOM fully loaded and parsed');
-
-const clap = document.querySelector('.aClap');
-        const boom = document.querySelector('.aBoom');
-        const hihat = document.querySelector('.aHihat');
-//events listeners
- 
-function CreateChanel(recBtn)
-    {
-       
-        this.nameChanel=recBtn.parentNode.className;
-        this.chanelsounds=[];
-        this.button=recBtn,
-        this.test=function(){
-            console.log(recBtn);
-        }
-    }
-    CreateChanel.prototype.showSounds=function(){
-        console.log(this.chanelsounds);
-    }
-
-    function foo(e)
-    {
-            if (e.code === 'KeyA') {
-                clap.currentTime = 0
-                clap.play()
-                const time = Date.now()
-                this.chanelsounds.push({
-                    key: e.code,
-                    time: time
-                })
-            }else if(e.code==='KeyS'){
-                boom.currentTime = 0
-                boom.play()
-                const time = Date.now()
-                this.chanelsounds.push({
-                    key: e.code,
-                    time: time
-                })
-            }else if(e.code==='KeyD'){
-                hihat.currentTime = 0
-                hihat.play()
-                const time = Date.now()
-                this.chanelsounds.push({
-                    key: e.code,
-                    time: time
-                })
-                console.log(this.chanelsounds);
-    }
-        
-    }
-
-    function deleteStartRec(){
-        //document.querySelector('.recording').removeEventListener('click',gogo,false);
-        //document.body.removeEventListener('keypress',foo);
-        document.querySelector('.recording').removeEventListener('click',gogo,false);
-        console.log('akuku');
-    }
-
-    CreateChanel.prototype.startRec=function(){
-                
-                document.body.addEventListener('keypress',foo.bind(this),false)
-                    
-                    }
-
-            CreateChanel.prototype.stopRecording=function(){
-                
-                document.querySelector('.stopRec').addEventListener('click',deleteStartRec,false)
-                
-            }
-
-            const chanel1 =new CreateChanel(document.querySelector('.recording'));
-
-    const eventObj={
-
-        buttons:document.querySelector('.recording'),
-        stopBtn:document.querySelector('.stopRec'),
-        btnclink:function(){
-
-            
-            this.buttons.addEventListener('click',gogo,false);
-        },
-        stopRec:function(){
-
-           // this.stopBtn.removeEventListener('click', this.btnclink.bind(this),false);
-
-            //console.log(this.stopBtn);
-            chanel1.stopRecording();
-        }
-
-
-    
-    }
-
-    function gogo(){
-     
-        chanel1.startRec();
-  }
-    eventObj.btnclink();
-    eventObj.stopRec();
-
-    
-});
-       */
-    </script>
+<div class="channel">
+    <div class="channel3">
+        <h2>Channel 3</h2>
+        <div class="flexBtn">
+            <button class="channel3Rec">Recording</button>
+            <button class="channel3Playing">Playing</button>
+        </div>
+    </div>
+</div>
+<div class="channel">
+    <div class="channel4">
+        <h2>Channel 4</h2>
+        <div class="flexBtn">
+        <button class="channel4Rec">Recording</button>
+        <button class="channel4Playing">Playing</button>
+    </div>
+    </div>
+</div>
+    <script type="text/javascript" src="/JS/app.js"></script>
 </body>
+
 </html>

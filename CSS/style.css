@@ -1,41 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
 body{
     box-sizing: border-box;
     margin: 0 auto;
     padding: 0 0 0 0;
     color: white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', 'sans-serif';
 }
-.channel-first , .channel1 , .channel2 , .to-play{
+ .channel , .channel1 ,  .channel2 , .channel3 , .channel4{
 height: 100vh;
 width: 100%;
 }
-h1{
-    margin: 0 0 0 0;
+audio{
+  display: block;
+  padding: 10px 0 10px 0;
+  background:none;
+  opacity: 100%;
 }
-.channel-first{
-background: cornflowerblue;
-
+.channel1{
+   background:#0E7373;
 }
 .channel2{
-    background: darkslategray;
+   background:#F26D85;
 }
-.to-play{
-    background: deeppink;
-    height: 100vh;
+.channel3{
+   background:#0E6973;
 }
-.path-audio{
-    display: flex;
+.channel4{
+   background:#BF214B;
+   
     
-    flex-direction:column;
-    align-items: center;
-    align-self: center;
-    justify-content:space-around;
 }
-
-.samples{
+.firstchannel{
+  background:#BF214B;
+  height: 100%;
+  width: 100%;
+}
+.flexBtn-firstChannel{
     display: flex;
-
-    flex-direction:column;
     align-items: center;
     align-self: center;
+    height: 40%;
+    justify-content: center;
 }
+.flexBtn {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    height: 80%;
+    justify-content: center;
+}
+
+
+.channel-drums{
+  
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+   
+}
+
+button{
+
+    border-radius: 5px;
+  padding: 15px 25px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+}
+button:active {
+    transform: translate(0px, 5px);
+    -webkit-transform: translate(0px, 5px);
+    box-shadow: 0px 1px 0px 0px;
+  }
+  
+   button{
+    background-color: #C1D0D9;
+    box-shadow: 0px 5px 5px 0px grey;
+  }
+  
+  button:hover {
+    background-color:#F26D85;
+  }
+
+  .capital{font-size: 4rem;
+    padding: 50px 0 50px ;
+    font:bold;
+    text-align: center;
+    color: #F26D85;
+}
+  
+  h2{font-size: 2.5rem;
+font: bold;
+padding: 30px 0 20px 20px;
+}
+
+/* Color Theme Swatches in Hex */
+.Cool-Water-1-hex { color: #F2059F; }
+.Cool-Water-2-hex { color: #D904B5; }
+.Cool-Water-3-hex { color: #4BD4F2; }
+.Cool-Water-4-hex { color: #AED984; }
+.Cool-Water-5-hex { color: #F20505; }
+
+/* Color Theme Swatches in RGBA */
+.Cool-Water-1-rgba { color: rgba(242, 4, 159, 1); }
+.Cool-Water-2-rgba { color: rgba(216, 4, 181, 1); }
+.Cool-Water-3-rgba { color: rgba(75, 211, 242, 1); }
+.Cool-Water-4-rgba { color: rgba(174, 216, 132, 1); }
+.Cool-Water-5-rgba { color: rgba(242, 4, 4, 1); }
+
