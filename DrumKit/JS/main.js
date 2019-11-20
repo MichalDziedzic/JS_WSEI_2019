@@ -22,60 +22,60 @@ const tomSound = document.querySelector('.tom');
 //     showSounds(){ 
 //         switch (code) {
 //             case 'KeyA':
-            
+
 //                 clapSound.play();
 //                 break
 //             case 'KeyS':
-            
+
 //                 boomSound.play();
 //                 break
 //             case "KeyD":
-                
+
 //                 hihatSound.play();
 //                 break
 //             case "KeyF":
-            
+
 //                 kickSound.play();
 //                 break
 //             case "KeyG":
-                
+
 //                 openhatSound.play();
 //                 break
 //             case "KeyH":
-            
+
 //                 rideSound.play();
 //                 break
 //             case "KeyJ":
-                
+
 //                 snareSound.play();
 //                 break
 //             case "KeyK":
-            
+
 //                 tinkSound.play();
 //                 break
 //             case "KeyL":
-        
+
 //                 tomSound.play();
 //                 break
 //     }
 // }
 // }
 
-class CreateChannel{
+class CreateChannel {
 
     constructor(btnRec, btnPlay) {
         this.btnRec = document.querySelector(`${btnRec}`)
         this.channelRecording = false,
-        this.channelSounds = [],
-        this.channelStartTime = null
-        this.btnRec.addEventListener('click',()=>this.startRecording());
-        document.querySelector(btnPlay).addEventListener('click',()=>this.playRecording());
-        document.body.addEventListener('keypress',(e)=>this.PutSounds(e));
+            this.channelSounds = [],
+            this.channelStartTime = null
+        this.btnRec.addEventListener('click', () => this.startRecording());
+        document.querySelector(btnPlay).addEventListener('click', () => this.playRecording());
+        document.body.addEventListener('keypress', (e) => this.PutSounds(e));
     }
 
-    changeTextBtn(text){
+    changeTextBtn(text) {
 
-        this.btnRec.innerHTML=text;
+        this.btnRec.innerHTML = text;
 
 
     }
@@ -87,37 +87,30 @@ class CreateChannel{
     //   }
     // }
 
-    startRecording(){
-        this.channelRecording = !this.channelRecording; 
-       
+    startRecording() {
+        this.channelRecording = !this.channelRecording;
 
-       if (this.channelRecording==true) {
-          
-           this.channelStartTime = Date.now();
 
-        //    this.changeStartTimeAllSounds();
-        //    allChannelsSounds.counter++;
-           
-       }
 
-       
-       if(this.channelRecording===true){
 
-           this.changeTextBtn('stop');
-       }
-       else
-       {
-               this.changeTextBtn('nagrywaj');
-       }
-   }
+        let txt;
+        if (this.channelRecording === true) {
+            this.channelStartTime = Date.now();
+            txt = 'stop';
+        }
+        else {
+            txt = 'nagrywaj';
+        }
+        this.changeTextBtn(txt)
+    }
 
-    PutSounds(e){
+    PutSounds(e) {
         if (this.channelRecording) {
             this.channelSounds.push({
                 code: e.code,
                 time: Date.now(),
             })
-            
+
             // allChannelsSounds.allSounds.push({
             //     code: e.code,
             //     time: Date.now(),
@@ -127,61 +120,61 @@ class CreateChannel{
         this.playSounds(e.code);
     }
 
-    
 
-    playRecording(){
-        
-    
-            this.channelRecording = false;
-            
 
-        for(let i=0;i<this.channelSounds.length;i++){
+    playRecording() {
 
-            let displayTime= this.channelSounds[i].time - this.channelStartTime;
-            
+
+        this.channelRecording = false;
+
+
+        for (let i = 0; i < this.channelSounds.length; i++) {
+
+            let displayTime = this.channelSounds[i].time - this.channelStartTime;
+
 
             setTimeout(this.playSounds, displayTime, this.channelSounds[i].code);
-            displayTime=null;
+
         }
-        this.btnRec.innerHTML = 'nagrywaj';
+        this.changeTextBtn('nagrywaj');
     }
 
-    playSounds(code){
+    playSounds(code) {
         switch (code) {
             case 'KeyA':
-            
+
                 clapSound.play();
                 break
             case 'KeyS':
-            
+
                 boomSound.play();
                 break
             case "KeyD":
-                
+
                 hihatSound.play();
                 break
             case "KeyF":
-            
+
                 kickSound.play();
                 break
             case "KeyG":
-                
+
                 openhatSound.play();
                 break
             case "KeyH":
-            
+
                 rideSound.play();
                 break
             case "KeyJ":
-                
+
                 snareSound.play();
                 break
             case "KeyK":
-            
+
                 tinkSound.play();
                 break
             case "KeyL":
-        
+
                 tomSound.play();
                 break
         }
@@ -190,7 +183,7 @@ class CreateChannel{
 
 
 const channel1 = new CreateChannel('.channel1Rec', '.channel1Playing');
-const channel2= new CreateChannel('.channel2Rec', '.channel2Playing');
+const channel2 = new CreateChannel('.channel2Rec', '.channel2Playing');
 const channel3 = new CreateChannel('.channel3Rec', '.channel3Playing');
 const channel4 = new CreateChannel('.channel4Rec', '.channel4Playing');
 
