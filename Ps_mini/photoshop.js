@@ -96,7 +96,7 @@ class Photoshop {
             
             if(this.Spray){
                 this.canvasConfig.ctx.filter = 'blur(3px)';
-             this.canvasConfig.ctx.fillRect(x - (5 / 2), y - (5 / 2), 5,5);
+             this.canvasConfig.ctx.fillRect(x - (this.BrushConfig.size / 2), y - (this.BrushConfig.size / 2), this.BrushConfig.size,this.BrushConfig.size);
              console.log('uzywaj blura');
              
 
@@ -104,21 +104,21 @@ class Photoshop {
 
             }else{
                 
-                this.canvasConfig.ctx.fillRect(x - (5 / 2), y - (5 / 2), 5,5);
+                this.canvasConfig.ctx.fillRect(x - (this.BrushConfig.size / 2), y - (this.BrushConfig.size / 2), this.BrushConfig.size,this.BrushConfig.size);
                 console.log('nie uzywaj blura na kwdracie');
                 
             }    
         }else{
             if(this.Spray){
                 this.canvasConfig.ctx.filter = 'blur(3px)';
-                this.canvasConfig.ctx.arc(x  ,y , 5 / 2, 0, 10 * Math.PI);
+                this.canvasConfig.ctx.arc(x  ,y , this.BrushConfig.size / 2, 0, 10 * Math.PI);
                 this.canvasConfig.ctx.fill();
                 console.log('uzywaj blura');
                
                 
             }else{
                 
-                this.canvasConfig.ctx.arc(x  ,y , 5 / 2, 0, 10 * Math.PI);
+                this.canvasConfig.ctx.arc(x  ,y , this.BrushConfig.size / 2, 0, 10 * Math.PI);
                 this.canvasConfig.ctx.fill();
                 console.log('nie uzywaj blura na kole');
                 

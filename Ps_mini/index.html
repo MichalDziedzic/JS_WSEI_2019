@@ -22,6 +22,9 @@
          display: flex;
          justify-content: center;
      }
+     a:link{
+         color: black;
+     }
        .tools{
                     display: flex;
                 justify-content: space-between;
@@ -90,9 +93,7 @@ ul#menu li li a {
      width: 160px;
 }
 
-ul#menu li li:hover {
-     background: white;
-}
+
 
 ul#menu li ul {
      overflow: hidden;
@@ -141,11 +142,11 @@ ul#menu li:hover ul {
                         
                             <input id="file-input" type="file"/>
                         </div>
-                        <a href="#" class="clear-Workspace"><i class="fas fa-backspace"></i></a>
-                        <button id="circleBrush" class="circle-brush-btn"><i class="fas fa-circle"></i></button>
-                        <button id="squareBrush" class="square-brush-btn"><i class="fas fa-square-full"></i></button>
-                        <button id="brightness" class="brightness-btn"><i class="far fa-lightbulb"></i></i></button>
-                        <button id="darkness" class="darkness-btn"><i class="fas fa-lightbulb"></i></button>
+                        <a href="##" class="clear-Workspace"><i class="fas fa-backspace"></i></a>
+                        <a href="##" id="circleBrush" class="circle-brush-btn"><i class="fas fa-circle"></i></a>
+                        <a href="##" id="squareBrush" class="square-brush-btn"><i class="fas fa-square-full"></i></a>
+                        <a href="##" id="brightness" class="brightness-btn"><i class="far fa-lightbulb"></i></i></a>
+                        <a href="##" id="darkness" class="darkness-btn"><i class="fas fa-lightbulb"></i></a>
                     </div>
 
                 <div class="workspace">
@@ -175,6 +176,7 @@ ul#menu li:hover ul {
 
                 document.querySelector('#brightness')
                         .addEventListener('click',()=>ps.brightnessFilter())
+                        ;
 
                         document.querySelector('.clear-Workspace')
                         .addEventListener('click',(e)=>ps.clearWorkspace(e));
@@ -189,6 +191,12 @@ ul#menu li:hover ul {
                         .addEventListener('click',()=>ps.sprayDraw())
                         document.querySelector('.fa-water')
                         .addEventListener('click',()=>ps.waveEffect())
+
+                        document.querySelector('#colorChange')
+                        .addEventListener('change',()=>ps.setColorBrush(document.querySelector('#colorChange').value));
+
+                        document.querySelector('#BrushSize')
+                        .addEventListener('change',()=>ps.setSizeBrush(document.querySelector('#BrushSize').value));
                        
 
     </script>
