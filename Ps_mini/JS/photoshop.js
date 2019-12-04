@@ -5,10 +5,10 @@ class Photoshop {
           this.BrushConfig = {
                 shape: 'circle',
                 color:'#000',
-                size:10
+                size:10,
+                
           },
-
-       
+          this.clearMouseFlag=false,
           this.counter=null,
           this.Spray=0,
           this.ImageBlur=null,
@@ -25,6 +25,15 @@ class Photoshop {
         this.BrushConfig.shape = shapeName;
         this.Spray=false;
         this.canvasConfig.ctx.filter = 'blur(0px)';
+        //this.clearMouseFlag=false;
+        this.setColorBrush('#000');
+
+        if(this.clearMouseFlag){
+            this.setColorBrush('#FFFFFF');
+            //czany
+            this.clearMouseFlag=false;
+        }
+        
         
         
     }
@@ -36,6 +45,8 @@ class Photoshop {
     setSizeBrush(size)
     {
         this.BrushConfig.size=size;
+        //console.log('kolor')
+        
     }
     
     setCanvas(canvasId) {
@@ -140,25 +151,30 @@ class Photoshop {
         this.canvasConfig.ctx.fillStyle = '#ffffff';
         this.canvasConfig.ctx.fillRect(0, 0, this.canvas.clientWidth, this.canvas.clientHeight);
     }
+
+    
     darkenFilter(amount = 30){
         const canvasData = this.canvasConfig.ctx.getImageData(0,0,320,500);
+
+    
         
-        for(let i = 0; i < canvasData.data.length; i+=4){
-                canvasData.data[i] -= amount
+         for(let i = 0; i < canvasData.data.length; i+=4){
+                 canvasData.data[i] -= amount
                 canvasData.data[i+1] -= amount
                 canvasData.data[i+2] -= amount         
-        }
+         }
+
         this.canvasConfig.ctx.putImageData(canvasData, 0, 0)
     }
     brightnessFilter(amount = 30){
         const canvasData = this.canvasConfig.ctx.getImageData(0,0,320,500);
         
-        for(let i = 0; i < canvasData.data.length; i+=4){
-                canvasData.data[i] += amount
-                canvasData.data[i+1] += amount
-                canvasData.data[i+2] += amount         
-        }
-        this.canvasConfig.ctx.putImageData(canvasData, 0, 0)
+         for(let i = 0; i < canvasData.data.length; i+=4){
+                 canvasData.data[i] += amount
+                 canvasData.data[i+1] += amount
+                 canvasData.data[i+2] += amount         
+         }
+         this.canvasConfig.ctx.putImageData(canvasData, 0, 0)
     }
 
     monoImage(){
@@ -183,14 +199,15 @@ class Photoshop {
             this.canvasConfig.ctx.putImageData(canvasData, 0, 0);
             this.counter=true;
         }else{
-                this.drawImage();
+               // this.drawImage();
                 this.counter=null;
         }
     }
      clearMouse(){
 
         this.Spray=false;
-        this.setColorBrush('#FFFFFF')
+        this.clearMouseFlag=true;
+       // this.setColorBrush('#FFFFFF')
         this.setBrush('square');
         
 
@@ -218,6 +235,22 @@ class Photoshop {
             }
      }
 
+     
+
+     textureFilter(){
+        const canvasData = this.canvasConfig.ctx.getImageData(0, 0, 320, 500);
+
+        for (let i=0; i < canvasData.data.length; i += 6) {
+            const r = canvasData.data[i];
+            const g = canvasData.data[i+6];
+            const b = canvasData.data[i+7];
+        
+            const average = (r+g+b) / 3;
+            canvasData.data[i] = canvasData.data[i+6] = canvasData.data[i+7] = average;
+            this.canvasConfig.ctx.putImageData(canvasData, 0, 0);
+        }
+        
+     }
 
     
 }

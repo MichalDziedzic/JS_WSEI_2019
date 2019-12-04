@@ -1,0 +1,109 @@
+body{
+    box-sizing: border-box;
+    margin: 0 auto;
+  
+    width: 100%;
+    background:	#696969;
+}
+
+
+
+.workspace{
+ display: flex;
+ justify-content: center;
+}
+a:link{
+ color: black;
+}
+.tools{
+            display: flex;
+        justify-content:space-around;
+        width: 360px;
+        padding: 0 0 10px 0;
+    }
+
+ .btn-Ps{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 86%;
+        margin-top: 10px;
+
+ }   
+
+#canvas {
+
+background: rgb(248, 248, 248);
+
+}
+
+
+.red {
+background: red;
+}
+.Ps-logo{
+background-image: url('../ps_logo.png');
+background-size:cover;
+height: 50px;
+width: 50px;
+}
+.image-upload > input
+{
+display: none;
+}
+.image-upload a
+{
+width: 10px;
+cursor: pointer;
+}
+
+
+
+<!-- menu-->
+
+#menu {
+text-align: left;
+overflow: hidden;
+font-family: calibri, tahoma;
+}
+
+ul#menu li {
+
+list-style-type: none;
+float: left;
+
+margin-left: 3px;
+}
+
+ul#menu li:hover {
+
+list-style-type: none;
+float: left;
+
+margin-left: 3px;
+}
+
+ul#menu li a {
+display : block;
+padding : 4pt;
+text-decoration : none;
+}
+
+ul#menu li li a {
+width: 160px;
+}
+
+
+
+ul#menu li ul {
+overflow: hidden;
+display: none;
+}
+
+ul#menu li:hover ul {
+position: absolute;
+background: #aaa;
+padding: 0;
+display: block;
+width: 160px;
+}

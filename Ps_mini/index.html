@@ -3,118 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bieda Photoshop</title>
+    <title>Photoshop mini</title>
     <link rel="stylesheet" href="./CSS/reset.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <link href="fontawesome-free-5.11.2-web/css/all.css" rel="stylesheet"> <!--load all styles -->
-    <script src="photoshop.js"></script>
-    <style>
-        body{
-            box-sizing: border-box;
-            margin: 0 auto;
-          
-            width: 100%;
-            background:	#696969;
-        }
-
-        
-       
-     .workspace{
-         display: flex;
-         justify-content: center;
-     }
-     a:link{
-         color: black;
-     }
-       .tools{
-                    display: flex;
-                justify-content: space-between;
-                width: 360px;
-            }
-       
-    #canvas {
-        
-        background: rgb(248, 248, 248);
-        
-     }
-     
-    
-    .red {
-        background: red;
-    }
-   .Ps-logo{
-       background-image: url('ps_logo.png');
-       background-size:cover;
-       height: 50px;
-       width: 50px;
-   }
-   .image-upload > input
-    {
-        display: none;
-    }
-    .image-upload a
-{
-    width: 10px;
-    cursor: pointer;
-}
-
-
-
-<!-- menu-->
-
-#menu {
-     text-align: left;
-     overflow: hidden;
-     font-family: calibri, tahoma;
-}
-
-ul#menu li {
-     
-     list-style-type: none;
-     float: left;
-     
-     margin-left: 3px;
-}
-
-ul#menu li:hover {
-     
-     list-style-type: none;
-     float: left;
-     
-     margin-left: 3px;
-}
-
-ul#menu li a {
-     display : block;
-     padding : 4pt;
-     text-decoration : none;
-}
-
-ul#menu li li a {
-     width: 160px;
-}
-
-
-
-ul#menu li ul {
-     overflow: hidden;
-     display: none;
-}
-
-ul#menu li:hover ul {
-     position: absolute;
-     background: #aaa;
-     padding: 0;
-     display: block;
-     width: 160px;
-}
-    </style>
 </head>
 <body>
     <div class="container">
-        <div class="Ps-logo"></div>
+        
                 <div class="tools">
-
                     
+                    <div class="Ps-logo"></div>
+                    <div class="btn-Ps">
                     <ul id="menu">
                         
                         <li><i class="fas fa-sliders-h"></i>
@@ -130,23 +30,21 @@ ul#menu li:hover ul {
                         
                         
                     </ul>
+                    
                         <i class="fas fa-adjust" id="mono"></i>
                         
                         <i class="fas fa-spray-can"></i>
                         <i class="fas fa-eraser"></i>
                         <i class="fas fa-water"></i>
-                        <div class="image-upload">
-                            <label for="file-input">
-                                <i class="far fa-images"></i>
-                            </label>
-                        
-                            <input id="file-input" type="file"/>
-                        </div>
+                            
+                        <i class="fas fa-chess-board"></i>
+                         
                         <a href="##" class="clear-Workspace"><i class="fas fa-backspace"></i></a>
                         <a href="##" id="circleBrush" class="circle-brush-btn"><i class="fas fa-circle"></i></a>
                         <a href="##" id="squareBrush" class="square-brush-btn"><i class="fas fa-square-full"></i></a>
                         <a href="##" id="brightness" class="brightness-btn"><i class="far fa-lightbulb"></i></i></a>
                         <a href="##" id="darkness" class="darkness-btn"><i class="fas fa-lightbulb"></i></a>
+                        </div>
                     </div>
 
                 <div class="workspace">
@@ -159,46 +57,7 @@ ul#menu li:hover ul {
                 </div>
             
 </div>
-    
-    <script type="text/javascript">
-    
-            const ps = new Photoshop('canvas');
-            ps.drawImage();
-
-            document.querySelector('#circleBrush')
-                .addEventListener('click',() => ps.setBrush('circle'));
-            
-            document.querySelector('#squareBrush')
-                .addEventListener('click',() => ps.setBrush('square'));
-
-                document.querySelector('#darkness')
-                        .addEventListener('click',()=>ps.darkenFilter());
-
-                document.querySelector('#brightness')
-                        .addEventListener('click',()=>ps.brightnessFilter())
-                        ;
-
-                        document.querySelector('.clear-Workspace')
-                        .addEventListener('click',(e)=>ps.clearWorkspace(e));
-
-                        document.querySelector('.fa-adjust')
-                        .addEventListener('click',()=>ps.monoImage())
-
-                        document.querySelector('.fa-eraser')
-                        .addEventListener('click',()=>ps.clearMouse());
-
-                        document.querySelector('.fa-spray-can')
-                        .addEventListener('click',()=>ps.sprayDraw())
-                        document.querySelector('.fa-water')
-                        .addEventListener('click',()=>ps.waveEffect())
-
-                        document.querySelector('#colorChange')
-                        .addEventListener('change',()=>ps.setColorBrush(document.querySelector('#colorChange').value));
-
-                        document.querySelector('#BrushSize')
-                        .addEventListener('change',()=>ps.setSizeBrush(document.querySelector('#BrushSize').value));
-                       
-
-    </script>
+<script src="JS/start.js"></script>
+<script src="JS/photoshop.js"></script>
 </body>
 </html>
