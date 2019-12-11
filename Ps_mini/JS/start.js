@@ -17,6 +17,18 @@ document.querySelector('#squareBrush')
             .addEventListener('click',()=>ps.brightnessFilter())
             ;
 
+           
+        //     document.querySelector("#changePropBrush").addEventListener('mouseover',()=>{
+                
+
+                
+               
+        //         document.querySelector("#changePropBrush").style.display='block'
+              
+               
+
+        //    });
+
             document.querySelector('.clear-Workspace')
             .addEventListener('click',(e)=>ps.clearWorkspace(e));
 

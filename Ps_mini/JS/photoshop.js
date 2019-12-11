@@ -25,14 +25,15 @@ class Photoshop {
         this.BrushConfig.shape = shapeName;
         this.Spray=false;
         this.canvasConfig.ctx.filter = 'blur(0px)';
-        //this.clearMouseFlag=false;
-        this.setColorBrush('#000');
+        
 
         if(this.clearMouseFlag){
             this.setColorBrush('#FFFFFF');
             //czany
             this.clearMouseFlag=false;
         }
+
+        
         
         
         
@@ -247,11 +248,18 @@ class Photoshop {
         
             const average = (r+g+b) / 3;
             canvasData.data[i] = canvasData.data[i+6] = canvasData.data[i+7] = average;
-            this.canvasConfig.ctx.putImageData(canvasData, 0, 0);
+            
         }
-        
+        this.canvasConfig.ctx.putImageData(canvasData, 0, 0);
      }
 
-    
+    // hideElem(elemID){
+
+    //     elemID.elemToHide.style.display='none';
+    // }
 }
+
+
+
+
 
