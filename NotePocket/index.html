@@ -1,12 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Docker</title>
+    <link rel="stylesheet" href="CSS/reset.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/Style.css" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+        crossorigin="anonymous">
+    <title>TODO</title>
 </head>
+
 <body>
-    <h1>gfgfg</h1>
+    <div class="container-fluid">
+        <div id="wrapper-signin" class="inner">
+            
+            <div class="form-signin">
+                <div class="sign_incontainer">
+                <h2 class="form-signin-heading text-center">Login Form</h2>
+                 <input type="text" name="login" class="form-control" id="login" placeholder="e-mail">
+     
+                 <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                  <label>Remember-me<input type="checkbox" name="Remember-me" id="Remember" value="Remember-me"></label>
+                  <div class="inner aelem"><a href="#" class="asign_up">create accound</a></div>
+                  
+            <button  value="signin" type ="submit" class="btn btn-lg btn-primary btn-block sign-in">Login</button>
+        </div>  
+            <div class ="register hidden">
+                    <div class="inner"><h2 class="form-signin-heading inner suignuptitile" id="singuptitle">Create Accound</h2><a href="#" class="btn backdiv"><i class="fas fa-arrow-left" id="backelem"></i></a></div>
+                    <form class="signupForm">
+                    <input type="text" name="login_signin" class="form-control" id="login_signup" placeholder="e-mail">
+                    <input type="password" name="password_signin" class="form-control" id="password_signup" placeholder="Password">
+                    <input type="text" name="name_signin" class="form-control" id="name_signup" placeholder="name">
+                    <input type="text" name="surname_signin" class="form-control" id="surname_signup" placeholder="surrname">
+                    <button  value="signup" type ="submit" class="btnsignup btn-lg btn-primary btn-block signup">Sign Up</button>
+                </form>
+                  </div>
+            </div>
+        </div>
+        
+    <div id="wrapper-content" class="hidden">
+        <div class="row header">
+
+
+
+            <div class="col-12 col-sm-12  personal">
+                <div class="d-flex justify-content-center ">
+                    <img src="IMG/user.png" class="rounded-circle user" alt="Cinque Terre">
+                    <span class="align-self-center">
+                        <h1>Imie Nazwisko</h1>
+                    </span>
+                </div>
+
+
+                <div class="d-flex justify-content-end">
+                    <a class="link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">account</a>
+                        <a class="dropdown-item" id="logout">log out</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--  section-->
+
+        <div class="sectionAll">
+            <div class="card-area">
+                <div class="row  section d-flex justify-content-center">
+
+
+                <div class="row col-12 col-sm-12 col-md-6 col-lg-6 section-cards section-card text-white bg-info mb-3">
+                    <div class="card-header header-card d-flex justify-content-between">
+                        <span>Header</span>
+                        <div class="buttons">
+                                <button type="button" class="btn btn-info edit"><i class="far fa-edit"></i></button>
+                        <button type="button" class="btn btn-info cancel-btn"><i class="far fa-times-circle"></i></button>
+                      </div>
+                    </div> 
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                    </div>
+                    <div class="card-header date-deadline">12:03</div>
+                
+                </div>
+            
+            </div>
+
+        </div>
+       
+        </div>
+
+        
+
+
+
+
+
+        <div class=" row d-flex justify-content-end addTask fixed-bottom">
+            <button type="button" class="btn btn-success " id="openModal"><i class="fas fa-plus"></i></button>
+        </div>
+
+
+
+
+
+
+        <!-- modal -->
+        <div class="modal-block">
+            <div class="d-flex justify-content-center">
+
+                <div class="card border-light mb-3 " style="max-width: 23rem;">
+                    <div class="card-body">
+                        <div class="cancel d-flex justify-content-between">
+                                <h5 class="card-title">Card title</h5>
+                            <button type="button" class="btn btn-light cancel-x"><i class="far fa-times-circle"></i></button>
+                        </div>
+                        <form class="todoForm">
+                            <div class="form-group">
+                                <label><input type="text" class="form-control" id="NameTask" placeholder="Name Task"></label>
+
+                                <label><textarea class="form-control" id="Textarea" rows="3"></textarea></label>
+
+                                <label><input type="date" id="deadlinedate" name="trip-start" class="form-control" value="2020-12-12"></label>
+                                <label><input type="time" name="time" id="deadlinetime" class="form-control" value="00:00"></label>
+
+                                <div class="row d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-primary" style="margin-top:30px" id="addTaskButton">Add</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+
+<script src="JS/firebaseConfig.js"></script>
+<script src="JS/app.js"></script>
+<script src="JS/user.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
 </html>

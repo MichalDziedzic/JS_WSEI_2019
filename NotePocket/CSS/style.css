@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body{
+    background-color:#eee;
+    overflow-x:hidden;
+    font-family: 'Lato', sans-serif;
+}
+#wrapper-signin{
+
+    height: 100vh;
+    background-color:#3AAFA9;
+    
+}
+.inner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.aelem{
+    padding: 0 0 15px 0;
+}
+.hidden {
+    display: none;
+    
+  }
+  #hidden{
+    display: none;
+  }
+#backelem{
+
+    font-size: 20px;
+}
+.personal{
+    background-color:#3AAFA9;
+
+}
+.user{
+    margin: 20px;
+    border-radius: solid black 3px;
+    height: 20vh;
+    -webkit-box-shadow: 0px 0px 18px -5px rgba(0,0,0,0.59);
+-moz-box-shadow: 0px 0px 18px -5px rgba(0,0,0,0.59);
+box-shadow: 0px 0px 18px -5px rgba(0,0,0,0.59);
+
+}
+.header{
+    width: 100%;
+    margin: 0;
+}
+.container-fluid{
+   padding: 0; 
+}
+.btn-success{
+    border-radius: 100px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    background-color: #3AAFA9;
+    color: #feffff;
+}
+.btn-success:hover{
+    color: #3AAFA9;
+    background-color: #fefefe;
+    border:border:1px solid #17252A;
+}
+.fas{
+    font-size: 3.5em;
+}
+.far{
+    padding: 3.5px;
+}
+.fa-edit{
+    padding:0 0 0 3.5px;
+}
+.sign-in{
+    background-color: #feffff;
+    color: #17252A;
+    border:1px solid #17252A;
+}
+
+
+.form-signin{
+    width:380px;
+    margin:0 auto;
+    padding-top: 200px;
+    background-color: #DEF2F1;
+    padding: 15px 40px 50px;
+    border:1px solid #17252A;
+    -webkit-box-shadow: -1px 0px 56px -12px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 0px 56px -12px rgba(0,0,0,0.75);
+    box-shadow: -1px 0px 56px -12px rgba(0,0,0,0.75);
+    border-radius:10px;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox{
+  margin-bottom: 30px;  
+}
+.form-signin input[type="text"], .form-signin input[type="password"]
+{
+    margin-bottom: 20px;
+}
+.form-signin .form-control{
+    padding: 10px;
+}
+#singuptitle{
+    padding-right: 20px;
+    margin-bottom: 0;
+}
+
+.card-header{
+    width: 100%;
+}
+.section-card{
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.section-cards:nth-child(1){
+    margin-top: 50px;
+}
+.fa-user-circle{
+
+    font-size: 40px;
+    color: black;
+}
+.form-control{
+    margin-top:20px;
+}
+.modal-block{
+display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.row{
+    margin-left:0;
+    margin-right: 0;
+}
+    
+
+    
+
