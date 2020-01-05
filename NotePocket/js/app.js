@@ -1,8 +1,8 @@
 
 
-const userNew= new User('login','password');
+// const userNew= new User('login','password');
 
-document.querySelector('#').addEventListener('click',() => userNew.setBrush('#cc'));
+// document.querySelector('#').addEventListener('click',() => userNew.setBrush('#cc'));
 
 
 
