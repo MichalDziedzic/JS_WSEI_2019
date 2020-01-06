@@ -125,9 +125,9 @@
                         </div>
                         <form class="todoForm">
                             <div class="form-group">
-                                <label><input type="text" class="form-control" name="NameTask"  placeholder="Name Task"></label>
+                                <label><input type="text" class="form-control" id="NameTask"  placeholder="Name Task"></label>
 
-                                <label><textarea class="form-control" name="message" rows="3"></textarea></label>
+                                <label><textarea class="form-control" id="message" rows="3"></textarea></label>
 
                                 <label><input type="date" id="deadlinedate" name="deadlineDay" class="form-control" value="2020-12-12"></label>
                                 <label><input type="time" name="time" id="deadlinetime" class="form-control" value="00:00"></label>
@@ -144,12 +144,14 @@
         </div>
     </div>
 </body>
-<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+<!--<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script> -->
 
 <!--<script src="JS/firebaseConfig.js"></script> -->
+<script src="JS/task.js"></script>
+<script src="JS/ui.js"></script>
 <script src="JS/app.js"></script>
-<script src="JS/validator.js"></script>
-<script src="JS/user.js"></script>
+<!--<<script src="JS/validator.js"></script>
+<script src="JS/user.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>

@@ -5,9 +5,9 @@ class Validator{
     this.TextArea = this.form.querySelector("textarea[name='message']"),
     this.TaskName = this.form.querySelector("input[name='NameTask']"),
     this.deadDate= this.form.querySelector("input[name='deadlineDay']"),
-    this.deadTime=this.form.querySelector("input[name='time']")
+    this.deadTime=this.form.querySelector("input[name='time']"),
 
-        //this.form.addeventlistener('submit',(e)=>this.validate(e),false)
+        this.form.addEventListener('submit',(e)=>this.validate(e),false);
     }
     // isEmail(text){
 
@@ -45,4 +45,4 @@ class Validator{
 }
 
 const task1 =new Validator('todoForm');
-console.log(task1);
+console.log(task1.TextArea.value);
