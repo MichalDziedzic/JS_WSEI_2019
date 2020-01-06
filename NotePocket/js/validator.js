@@ -1,13 +1,13 @@
 class Validator{
     constructor(form){
 
-    this.form=form,
-    this.TextArea = form.querySelector("textarea[name='message']"),
-    this.TaskName = form.querySelector("input[name='NameTask']"),
-    this.deadDate= form.querySelector("input[name='deadlineDay']"),
-    this.deadTime=form.querySelector("input[name='time']"),
+    this.form=document.querySelector(`.${form}`),
+    this.TextArea = this.form.querySelector("textarea[name='message']"),
+    this.TaskName = this.form.querySelector("input[name='NameTask']"),
+    this.deadDate= this.form.querySelector("input[name='deadlineDay']"),
+    this.deadTime=this.form.querySelector("input[name='time']")
 
-        this.form.addeventlistener('submit',(e)=>this.validate(e),false)
+        //this.form.addeventlistener('submit',(e)=>this.validate(e),false)
     }
     // isEmail(text){
 
@@ -44,4 +44,5 @@ class Validator{
     }
 }
 
-const task1 =new Validator(document.querySelector('.todoForm'));
+const task1 =new Validator('todoForm');
+console.log(task1);
