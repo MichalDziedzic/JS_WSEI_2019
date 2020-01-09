@@ -9,6 +9,18 @@ const modal = document.querySelector('.modal-block');
     modal.style.setProperty('display', 'block');
 });
 
+document.querySelector('.cancel-x').addEventListener('click',()=>{
+
+    modal.style.setProperty('display', 'none');
+})
+document.querySelector('.cancel-btn').addEventListener('click',()=>{
+
+    modal.style.setProperty('display', 'none');
+})
+
+
+
+
 document.querySelector('.todoForm').addEventListener('submit',(e)=>{
 e.preventDefault();
 
@@ -27,6 +39,10 @@ if(taskName!=='' || messege!=='')
     const task=new Task(taskName,messege,timeDeadline,dateDeadline);
 
     ui.addTaskToList(task);
+
+    modal.style.setProperty('display', 'none');
+
+    document.querySelector('.todoForm').reset();
 
 }else
 // eslint-disable-next-line no-empty
