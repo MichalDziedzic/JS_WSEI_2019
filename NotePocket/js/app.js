@@ -8,13 +8,18 @@ class AppEvents
         this.WrapContent = document.querySelector("#wrapper-content"),
         this.wrapSignIn = document.querySelector("#wrapper-signin"),
         this.uid=null,
+        this.formSigin=document.querySelector('.sign_incontainer');
+        this.registerdiv=document.querySelector('.register');
 
         document.querySelector('.fa-plus').addEventListener('click',()=>this.openModal()),
         document.querySelector('.cancel-btn').addEventListener('click',()=>this.closeModal()),
         document.querySelector('.cancel-x').addEventListener('click',()=>this.closeModal()),
         document.querySelector('.todoForm').addEventListener('submit',(e)=>this.checkformTask(e)),
         document.querySelector('.signInForm').addEventListener('submit',(e)=>this.checkformUserLogin(e)),
-        
+        document.querySelector('#logout').addEventListener('click',()=>this.signoutUserserw()),
+        document.querySelector('.asign_up').addEventListener('click',()=>this.openFormSignUp()),
+        document.querySelector('.backdiv').addEventListener('click',()=>this.backToSignInPage()),
+        document.querySelector('.signupForm').addEventListener('submit',(e)=>this.checkFormSignUp(e))
 
         window.addEventListener('DOMContentLoaded', () =>this.checkUserSession());
 
@@ -112,6 +117,23 @@ class AppEvents
         this.wrapSignIn.classList.add('inner');
         this.wrapSignIn.classList.remove("hidden");
     }
+    openFormSignUp()
+    {
+        
+            this.formSigin.classList.add("hidden");
+            this.registerdiv.classList.remove('hidden');
+
+         
+        
+          
+    }
+    backToSignInPage(){
+         
+        this.formSigin.classList.remove("hidden");
+        this.registerdiv.classList.add('hidden');
+
+    }
+    
     checkformTask(e)
     {
         e.preventDefault();
@@ -142,6 +164,50 @@ class AppEvents
             console.log('try again!')
         }
     }
+    checkFormSignUp(e)
+    {
+        e.preventDefault();
+
+        const emailSignUp=document.querySelector('#login_signup').value;
+            const  passwordSignUp=document.querySelector('#password_signup').value;
+            const nameSignUp=document.querySelector('#name_signup').value;
+          const surnameSignUp=document.querySelector('#surname_signup').value;
+        
+       //console.log(emailSignUp ,passwordSignUp, nameSignUp , surnameSignUp);
+        
+        if(emailSignUp!=='' || passwordSignUp!=='' || nameSignUp!=='' || surnameSignUp!=='')
+        // eslint-disable-next-line no-empty
+        {
+            
+        
+            const test=new SignUp(emailSignUp,passwordSignUp,nameSignUp,surnameSignUp);
+
+                test.signUpUserToDB();
+            
+        
+            
+        
+            document.querySelector('.signupForm').reset();
+        
+        }else
+        // eslint-disable-next-line no-empty
+        {
+            console.log('try again!')
+        }
+    }
+    signoutUserserw(){
+
+        this.switchOnLoginPage();
+
+        firebase.auth().signOut().then(function () {
+          alert('wylogowano');
+          //WrapContent.style.setProperty('display', 'none')
+            
+        }).catch(function (error) {
+          // An error happened.
+        });
+      
+      }
 
 }
 

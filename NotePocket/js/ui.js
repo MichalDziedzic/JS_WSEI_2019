@@ -80,6 +80,9 @@ class UI{
           }
     
       }
+
+      
+
     deleteTask(e){
         
   
