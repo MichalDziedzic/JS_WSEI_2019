@@ -43,6 +43,10 @@ class AppEvents
 
                   //addUserDescribe(user);
                   this.uid = user.uid;
+                  
+
+                     firebase.database().ref("/"+uiduser).set(userobj);
+                     
                   //console.log(this);
                   
                 //  console.log(typeof(user.uid));
@@ -183,6 +187,12 @@ class AppEvents
             const test=new SignUp(emailSignUp,passwordSignUp,nameSignUp,surnameSignUp);
 
                 test.signUpUserToDB();
+
+
+                if(this.uid!==null)
+                {
+                    firebase.database().ref("/"+this.uid).set(test);
+                }
             
         
             
