@@ -45,7 +45,7 @@ class AppEvents
                   this.uid = user.uid;
                   
 
-                     firebase.database().ref("/"+uiduser).set(userobj);
+                     //firebase.database().ref("/"+uiduser).set(userobj);
                      
                   //console.log(this);
                   
@@ -157,6 +157,7 @@ class AppEvents
             const task=new Task(taskName,messege,timeDeadline,dateDeadline);
         
             ui.addTaskToList(task);
+            task.saveDataToDB();
         
             this.closeModal();
         
@@ -186,13 +187,12 @@ class AppEvents
         
             const test=new SignUp(emailSignUp,passwordSignUp,nameSignUp,surnameSignUp);
 
-                test.signUpUserToDB();
+             test.signUpUserToDB();
 
 
-                if(this.uid!==null)
-                {
-                    firebase.database().ref("/"+this.uid).set(test);
-                }
+            test.signUpUser();
+
+            
             
         
             

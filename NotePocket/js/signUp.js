@@ -18,5 +18,52 @@ class SignUp extends User{
             // ...
           });
        }
-    
+       signUpUser()
+       {
+           //firebase.auth(.onAuthStateChanged( (user) => {...})
+           //that=this;
+       
+           firebase.auth().onAuthStateChanged((user)=>{
+       
+            console.log(this);
+               
+               if (user){
+                     //console.log("xxxx");
+                     
+                     //that.switchOnDashboard();
+       
+                    
+                     
+       
+                     //addUserDescribe(user);
+                     let uiduser = user.uid;
+                     
+       
+                       firebase.database().ref("/"+uiduser).set(this);
+                        
+                     
+                     
+                   //  console.log(typeof(user.uid));
+                    // console.log(user);
+                    //create reference
+             
+                 
+             
+                     // todo get user data
+                     
+                   
+               }
+                else{
+             
+                 // No user is signed in.
+                 console.log('user not exist');
+               
+               }
+             
+           })
+               
+             
+             
+       }
+
     }
