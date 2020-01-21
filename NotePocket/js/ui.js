@@ -6,7 +6,7 @@ class UI{
     addTaskToList(task){
 
         
-        var dateshow = new Date(task.date);
+        //var dateshow = new Date(task.date);
 
             const todo = document.createElement('div');
 

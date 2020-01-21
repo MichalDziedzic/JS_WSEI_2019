@@ -2,9 +2,9 @@ class User{
 
 constructor(login,password){
 
-this.user=true,
-this.email=login,
-this.password=password
+  this.user=true,
+  this.email=login,
+  this.password=password
 
 }
 

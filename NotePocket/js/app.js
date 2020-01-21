@@ -37,6 +37,8 @@ class AppEvents
                   console.log("dziala");
                   
                   //that.switchOnDashboard();
+                  const emptyTask=new Task();
+                  emptyTask.readDataFromDB()
 
                   this.switchOnDashboard();
                   
@@ -157,7 +159,8 @@ class AppEvents
             const task=new Task(taskName,messege,timeDeadline,dateDeadline);
         
             ui.addTaskToList(task);
-            task.saveDataToDB();
+            
+            task.readDataFromDB();
         
             this.closeModal();
         
