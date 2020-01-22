@@ -9,21 +9,22 @@ class Task{
     }
     saveDataToDB()
     {
-            let uid = firebase.auth().currentUser.uid;
-
-            firebase.database().ref(uid + "/Tasknum/"+this.title).set(this);
+            let uidik = firebase.auth().currentUser.uid;
+        //const that=this;
+            firebase.database().ref(uidik+"/Tasknum/"+this.title).set(this);
 
     }
     readDataFromDB()
     {
        // const header = [];
-        let uid = firebase.auth().currentUser.uid;
-        firebase.database().ref(uid +"/Tasknum").on("value",(snapshot)=>
+        const uid = firebase.auth().currentUser.uid;
+        firebase.database().ref(uid+"/Tasknum").on("value",(snapshot)=>
         {
 
             let Tasknumber = snapshot.val();
-            //console.log(Tasknumber);
-            const blblb = new UI();
+            console.log(snapshot);
+            // if(Tasknumber!==null)
+            // {
                 Object.keys(Tasknumber).forEach(key => 
                     {
 
@@ -32,13 +33,14 @@ class Task{
                     console.log(key);
                       //header=Tasknumber[key]  
                         
-                         
+                      const blblb = new UI();
                    
                    
                     blblb.addTaskToList(Tasknumber[key]); 
                  });
 
-                
+            // }  
+            
         })
     }
 }   

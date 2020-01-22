@@ -5,6 +5,7 @@ class SignUp extends User{
         super(email,password),
         this.name=name,
         this.surname=surname
+        
 
         
     }
@@ -23,44 +24,32 @@ class SignUp extends User{
            //firebase.auth(.onAuthStateChanged( (user) => {...})
            //that=this;
        
-           firebase.auth().onAuthStateChanged((user)=>{
+        //    firebase.auth().onAuthStateChanged((user)=>{
        
-            console.log(this);
+        //     console.log(this);
                
-               if (user){
-                     //console.log("xxxx");
-                     
-                     //that.switchOnDashboard();
-       
-                    
-                     
-       
-                     //addUserDescribe(user);
-                     let uiduser = user.uid;
+        //        if (user){
+            setTimeout(()=> {
+                
+              
+                
+                   //  let uiduser = user.uid;
+                   const uiduser = firebase.auth().currentUser.uid;
                      
        
-                       firebase.database().ref("/"+uiduser).set(this);
+                       firebase.database().ref(uiduser+"/UserData").set(this);
                         
-                     
-                     
-                   //  console.log(typeof(user.uid));
-                    // console.log(user);
-                    //create reference
-             
-                 
-             
-                     // todo get user data
-                     
+            }, 3000); 
                    
-               }
-                else{
+        //        }
+        //         else{
              
-                 // No user is signed in.
-                 console.log('user not exist');
+        //          // No user is signed in.
+        //          console.log('user not exist');
                
-               }
+        //        }
              
-           })
+        //    })
                
              
              

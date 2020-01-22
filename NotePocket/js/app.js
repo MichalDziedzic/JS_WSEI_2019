@@ -21,7 +21,7 @@ class AppEvents
         document.querySelector('.backdiv').addEventListener('click',()=>this.backToSignInPage()),
         document.querySelector('.signupForm').addEventListener('submit',(e)=>this.checkFormSignUp(e))
 
-        window.addEventListener('DOMContentLoaded', () =>this.checkUserSession());
+        this.checkUserSession();
 
     }
     checkUserSession()
@@ -36,9 +36,9 @@ class AppEvents
             if (user){
                   console.log("dziala");
                   
-                  //that.switchOnDashboard();
+                 // this.switchOnDashboard();
                   const emptyTask=new Task();
-                  emptyTask.readDataFromDB()
+                  emptyTask.readDataFromDB();
 
                   this.switchOnDashboard();
                   
@@ -160,7 +160,7 @@ class AppEvents
         
             ui.addTaskToList(task);
             
-            task.readDataFromDB();
+            task.saveDataToDB();
         
             this.closeModal();
         
@@ -209,8 +209,14 @@ class AppEvents
         }
     }
     signoutUserserw(){
-
-        this.switchOnLoginPage();
+            const divs = document.querySelectorAll('.card-area');
+            this.switchOnLoginPage();
+            [].forEach.call(divs, (divs)=>{
+           
+                divs.remove();
+            });
+        
+        
 
         firebase.auth().signOut().then(function () {
           alert('wylogowano');
