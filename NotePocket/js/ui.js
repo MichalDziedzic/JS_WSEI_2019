@@ -102,8 +102,8 @@ class UI{
                 const time = new Date(task.date);
                 time.setHours(hours);
                 time.setMinutes(min);
-                console.log(time);
-               dateNoteDeadline.innerHTML=`<p>Deadline: ${time.getFullYear()}-${time.getMonth()}-${time.getDay()} | ${time.getHours()}:${time.getMinutes()}</p>`;
+                console.log(time.getMonth());
+               dateNoteDeadline.innerHTML=`<p>Deadline: ${time.getFullYear()}-${time.getMonth()+1}-${time.getDate()} | ${time.getHours()}:${time.getMinutes()}</p>`;
                dateDeadline.after(dateNoteDeadline);
             }
             
