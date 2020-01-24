@@ -169,6 +169,7 @@ class AppEvents
           const dateDeadline=document.querySelector('#deadlinedate').value;
         
         console.log(taskName , messege, timeDeadline , dateDeadline);
+      
         
         if(taskName!=='' || messege!=='')
         // eslint-disable-next-line no-empty
@@ -178,9 +179,9 @@ class AppEvents
         
             const task=new Task(taskName,messege,timeDeadline,dateDeadline,createNoteTime);
         
-           // ui.addTaskToList(task);
+           //ui.addTaskToList(task);
             
-            task.saveDataToDB();
+           task.saveDataToDB();
         
             this.closeModal();
         

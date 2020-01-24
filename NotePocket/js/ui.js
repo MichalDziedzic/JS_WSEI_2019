@@ -19,9 +19,8 @@ class UI{
             if(task.notice!==false)
             // eslint-disable-next-line no-empty
             {
-            //   this.addClassToElem(createbtnone,['btn','btn-danger','edit']);
-            // this.addClassToElem(createbtntwo,['btn','btn-danger','cancel-btn']);
-            this.addClassToElem(todoBar, ['row','col-sm-12','col-md-6','col-12','col-lg-6','section-cards', 'section-card', 'text-white', 'bg-danger', 'mb-3'])
+            
+              this.addClassToElem(todoBar, ['row','col-sm-12','col-md-6','col-12','col-lg-6','section-cards', 'section-card', 'text-white', 'bg-danger', 'mb-3'])
             }
             this.addClassToElem(todoBar, ['row','col-sm-12','col-md-6','col-12','col-lg-6','section-cards', 'section-card', 'text-white', 'bg-info', 'mb-3'])
 
@@ -70,21 +69,46 @@ class UI{
             
             const dateDeadline=document.createElement('div');
             this.addClassToElem(dateDeadline,['card-header','date-deadline']);
-            //dateDeadline.innerText="Deadline : "+dateshow.getDay()+"/"+dateshow.getMonth()+"/"+dateshow.getFullYear()+" "+(task['time'].getHours()-1)+":"+task['time'].getMinutes();
+
+            
+            
+            
             dateDeadline.innerText=`Created: ${task.createNote}`
             cardArea.append(todo) 
             todo.appendChild(todoBar);
             todoBar.appendChild(todoBarsecond);
-            todoBar.appendChild(todoBarthird);
+            todoBar.appendChild(todoBarthird);//
             todoBarthird.appendChild(todoBarfour);
-            // todoBar.append(todoBarsecond);
+            // todoBar.append(todoBarsecond);//
             todoBarsecond.append(buttonsblock);
             this.gripSection.append(cardArea);
             buttonsblock.append(createbtnone);
             buttonsblock.append(createbtntwo);
             createbtnone.append(createione);
             createbtntwo.append(createitwo);
-            todoBarthird.append(dateDeadline);
+            todoBarthird.after(dateDeadline);
+            if(task.time!=='00:00')
+            // eslint-disable-next-line no-empty
+            {
+                const dateNoteDeadline=document.createElement('div');
+                this.addClassToElem(dateNoteDeadline,['card-header','date-deadline']);
+              //console.log(new Date(dateDeadline))
+              // console.log(task.time.search(':'))
+               
+               let min=task.time.slice(task.time.search(':')+1,task.time.length);
+               let hours=task.time.slice(0,task.time.search(':'));
+       
+               
+                const time = new Date(task.date);
+                time.setHours(hours);
+                time.setMinutes(min);
+                console.log(time);
+               dateNoteDeadline.innerHTML=`<p>Deadline: ${time.getFullYear()}-${time.getMonth()}-${time.getDay()} | ${time.getHours()}:${time.getMinutes()}</p>`;
+               dateDeadline.after(dateNoteDeadline);
+            }
+            
+            
+            
            
             
     }
