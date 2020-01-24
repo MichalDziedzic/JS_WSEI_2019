@@ -3,7 +3,7 @@ class AppEvents
 {
 
     constructor()
-    {
+    {   //this.modalUpdateTask=document.querySelector(''),
         this.modalEl=document.querySelector('.modal-block'),
         this.WrapContent = document.querySelector("#wrapper-content"),
         this.wrapSignIn = document.querySelector("#wrapper-signin"),
@@ -11,9 +11,9 @@ class AppEvents
         this.formSigin=document.querySelector('.sign_incontainer');
         this.registerdiv=document.querySelector('.register');
 
-        document.querySelector('.fa-plus').addEventListener('click',()=>this.openModal()),
-        document.querySelector('.cancel-btn').addEventListener('click',()=>this.closeModal()),
-        document.querySelector('.cancel-x').addEventListener('click',()=>this.closeModal()),
+        document.querySelector('#openModal').addEventListener('click',()=>this.openModal(this.modalEl)),
+        document.querySelector('.cancel-x').addEventListener('click',()=>this.closeModal(this.modalEl)),
+        // document.querySelector('.cancel-x-update').addEventListener('click',()=>this.closeModal(document.querySelector('.modal-block-update')))
         document.querySelector('.todoForm').addEventListener('submit',(e)=>this.checkformTask(e)),
         document.querySelector('.signInForm').addEventListener('submit',(e)=>this.checkformUserLogin(e)),
         document.querySelector('#logout').addEventListener('click',()=>this.signoutUserserw()),
@@ -39,12 +39,23 @@ class AppEvents
                  // this.switchOnDashboard();
                   const emptyTask=new Task();
                   emptyTask.readDataFromDB();
+                  this.uid = user.uid;
+                  const uid = firebase.auth().currentUser.uid;
+
+                    firebase.database().ref(uid+"/UserData").on("value",(snapshot)=>{
+
+                        let userData= snapshot.val();
+                        //console.log(userData.email);
+                        document.querySelector('.align-self-center').children[0].innerHTML=`${userData.name} ${userData.surname}`;
+                        document.querySelector('.dropdown-toggle').innerHTML=userData.email;
+
+                    })
 
                   this.switchOnDashboard();
                   
 
                   //addUserDescribe(user);
-                  this.uid = user.uid;
+                  
                   
 
                      //firebase.database().ref("/"+uiduser).set(userobj);
@@ -143,6 +154,14 @@ class AppEvents
     checkformTask(e)
     {
         e.preventDefault();
+        console.log(e.target)
+        
+        let dateshow = new Date();
+        let hour=dateshow.getHours();
+        let minutes=dateshow.getMinutes();
+        let seconds=dateshow.getSeconds();
+
+         const createNoteTime = `${hour}:${minutes}:${seconds}`;
 
         const taskName=document.querySelector('#NameTask').value;
             const  messege=document.querySelector('#message').value;
@@ -154,11 +173,12 @@ class AppEvents
         if(taskName!=='' || messege!=='')
         // eslint-disable-next-line no-empty
         {
-            const ui=new UI();
+            //const ui=new UI();
+            
         
-            const task=new Task(taskName,messege,timeDeadline,dateDeadline);
+            const task=new Task(taskName,messege,timeDeadline,dateDeadline,createNoteTime);
         
-            ui.addTaskToList(task);
+           // ui.addTaskToList(task);
             
             task.saveDataToDB();
         
