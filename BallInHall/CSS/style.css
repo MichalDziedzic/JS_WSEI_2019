@@ -19,8 +19,7 @@
       display: block;
       text-indent: -9999px;
     position: absolute;
-    top   : 150px;
-    left  : 150px;
+   
     width : 20px;
     height: 20px;
     background: url('../IMG/beachBall.svg');
@@ -32,9 +31,9 @@
     position: absolute;
     left: 20px;
     bottom: 20px;
-    height: 40px;
-    width: 40px;
+    height: 70px;
+    width: 70px;
     background: url('../IMG/strainer.svg');
-    background-size: 40px 40px;
+    background-size: 70px 70px;
     
   }

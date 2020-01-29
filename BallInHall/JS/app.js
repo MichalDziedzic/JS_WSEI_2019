@@ -1,37 +1,48 @@
-var ball   = document.querySelector('.ball');
-var garden = document.querySelector('.garden');
+class Ball {
+  constructor() {
+    this.ball=document.querySelector('.ball'),
+    this.playGround= document.querySelector('.play-ground'),
+      this.x = 150,
+      this.y = 150,
+      this.maxValue=325,
+      this.moveEvent = window.addEventListener('deviceorientation', (e) =>
+      {
+        this.BallSpeed(e.gamma, e.beta)
+        setInterval(() => this.moveBall(), 10)
+      },true),
+      this.moveRateX = 0,
+      this.moveRateY = 0;
+      
+  }
 
-
-
-var maxX = playGround.clientWidth  - ball.clientWidth ;
-var maxY = playGround.clientHeight - ball.clientHeight ;
-
-
-
-function handleOrientation(event) {
-  var x = event.beta;  // In degree in the range [-180,180]
-  var y = event.gamma;
   
- 
-   console.log(event);
-   console.log(x)
-   console.log(y)
+
+  moveBall = () => {
+    if(this.x  <=this.maxValue && this.x>=0 && this.y<=this.maxValue && this.y>=0)
+    {
+
+      this.ball.style.left = this.x + 'px';
+      this.ball.style.top = this.y + 'px';
+      this.x += this.moveRateX
+      this.y += this.moveRateY
+      console.log(document.querySelector('.hole').clientWidth);
+      console.log(document.querySelector('.hole').clientHeight);
+     
+    }else{
+      this.x=150;
+      this.y=150;
+      this.moveRateX=0;
+      this.moveRateY=0;
+    }
+      
    
+  }
 
-//   // Because we don't want to have the device upside down
-//   // We constrain the x value to the range [-90,90]
-if (x >  90) { x =  90};
-if (x < -90) { x = -90};
+  BallSpeed = (gamma, beta) => {
+      this.moveRateX += gamma / 600;
+      this.moveRateY += beta / 600;
+  }
 
-// To make computation easier we shift the range of 
-// x and y to [0,180]
-x += 90;
-y += 90;
-
-//   // 10 is half the size of the ball
-//   // It center the positioning point to the center of the ball
-   ball.style.top  = (maxY*y/180 - 20) + "px";
-   ball.style.left = (maxX*x/180 - 20) + "px";
 }
 
-window.addEventListener('deviceorientation', handleOrientation);
+const test1=new Ball();
