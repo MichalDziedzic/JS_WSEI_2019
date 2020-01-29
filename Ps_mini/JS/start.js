@@ -5,10 +5,10 @@ ps.drawImage();
 
 
 document.querySelector('#circleBrush')
-    .addEventListener('click',() => ps.setBrush('circle'));
+    .addEventListener('click',() =>{ ps.setBrush('circle') ;ps.setColorBrush('#000')});
 
 document.querySelector('#squareBrush')
-    .addEventListener('click',() => ps.setBrush('square'));
+    .addEventListener('click',() => {ps.setBrush('square') ;ps.setColorBrush('#000')});
 
     document.querySelector('#darkness')
             .addEventListener('click',()=>ps.darkenFilter());
@@ -18,16 +18,6 @@ document.querySelector('#squareBrush')
             ;
 
            
-        //     document.querySelector("#changePropBrush").addEventListener('mouseover',()=>{
-                
-
-                
-               
-        //         document.querySelector("#changePropBrush").style.display='block'
-              
-               
-
-        //    });
 
             document.querySelector('.clear-Workspace')
             .addEventListener('click',(e)=>ps.clearWorkspace(e));

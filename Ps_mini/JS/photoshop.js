@@ -8,6 +8,7 @@ class Photoshop {
                 size:10,
                 
           },
+           
           this.clearMouseFlag=false,
           this.counter=null,
           this.Spray=0,
@@ -18,6 +19,7 @@ class Photoshop {
             ctx : canvas.getContext('2d')
         }
         this.setCanvas(canvasId)
+        this.canvasData = this.canvasConfig.ctx.getImageData(0,0,320,500);
      
     }
 
@@ -29,7 +31,7 @@ class Photoshop {
 
         if(this.clearMouseFlag){
             this.setColorBrush('#FFFFFF');
-            //czany
+            
             this.clearMouseFlag=false;
         }
 
@@ -46,7 +48,7 @@ class Photoshop {
     setSizeBrush(size)
     {
         this.BrushConfig.size=size;
-        //console.log('kolor')
+        
         
     }
     
@@ -78,7 +80,7 @@ class Photoshop {
                 
                 if(this.ImageBlur){ 
                     this.canvasConfig.ctx.filter = 'blur(5px)';
-                    //this.ImageBlur=null;
+                    
                     
                     
                 }else{
@@ -125,22 +127,20 @@ class Photoshop {
                 this.canvasConfig.ctx.filter = 'blur(3px)';
                 this.canvasConfig.ctx.arc(x  ,y , this.BrushConfig.size / 2, 0, 10 * Math.PI);
                 this.canvasConfig.ctx.fill();
-                console.log('uzywaj blura');
+             
                
                 
             }else{
                 
                 this.canvasConfig.ctx.arc(x  ,y , this.BrushConfig.size / 2, 0, 10 * Math.PI);
                 this.canvasConfig.ctx.fill();
-                console.log('nie uzywaj blura na kole');
+                
                 
             }
             
         }
          
-        //console.log('zmien');
-        //this.Spray=false;
-        //this.canvasConfig.ctx.filter = 'blur(0px)';
+        
       
         
          this.canvasConfig.ctx.stroke()
@@ -155,8 +155,9 @@ class Photoshop {
 
     
     darkenFilter(amount = 30){
-        const canvasData = this.canvasConfig.ctx.getImageData(0,0,320,500);
+        //const canvasData = this.canvasConfig.ctx.getImageData(0,0,320,500);
 
+        const ImgData=this.canvasData;
     
         
          for(let i = 0; i < canvasData.data.length; i+=4){
@@ -191,7 +192,7 @@ class Photoshop {
                 const r = canvasData.data[i];
                 const g = canvasData.data[i+1];
                 const b = canvasData.data[i+2];
-            // const a = canvasData.data[i+3];
+            
                 const average = (r+g+b) / 3;
                 canvasData.data[i] = canvasData.data[i+1] = canvasData.data[i+2] = average;
             }
@@ -200,7 +201,7 @@ class Photoshop {
             this.canvasConfig.ctx.putImageData(canvasData, 0, 0);
             this.counter=true;
         }else{
-               // this.drawImage();
+               
                 this.counter=null;
         }
     }
@@ -208,7 +209,6 @@ class Photoshop {
 
         this.Spray=false;
         this.clearMouseFlag=true;
-       // this.setColorBrush('#FFFFFF')
         this.setBrush('square');
         
 
@@ -252,11 +252,6 @@ class Photoshop {
         }
         this.canvasConfig.ctx.putImageData(canvasData, 0, 0);
      }
-
-    // hideElem(elemID){
-
-    //     elemID.elemToHide.style.display='none';
-    // }
 }
 
 
