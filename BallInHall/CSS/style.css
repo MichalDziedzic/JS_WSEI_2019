@@ -13,6 +13,7 @@
     border: 5px solid #c71461;
     background:url('../IMG/pattern.jpg');
     background-size: cover;
+  
   }
   
   .ball {
@@ -29,11 +30,20 @@
   .hole{
 
     position: absolute;
+    display: block;
     left: 20px;
     bottom: 20px;
     height: 70px;
+    text-indent: -9990px;
     width: 70px;
     background: url('../IMG/strainer.svg');
     background-size: 70px 70px;
     
+  }
+  .panelGame
+  {
+    display: block;
+    height:100vh;
+   
+    background: red;
   }
