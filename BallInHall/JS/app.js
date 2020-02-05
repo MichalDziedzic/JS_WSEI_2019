@@ -1,37 +1,40 @@
-class Game{
-    constructor(){
-        this.BtnStartGame=document.querySelector('.btnStartGame');
-        this.BtnStartGame.addEventListener('click',()=>this.startGame());
-        this.open=false;
-        this.playground=document.querySelector('.play-ground');
-        this.panelGame=document.querySelector('.panelGame');
-        this.checkGameBtn();
-        
-        
-    }
-    checkGameBtn()
-    {
-         this.playground.style.display="none";
-             this.panelGame.style.display="block";
-             
-        console.log('xxx');
-    }
-    startGame()
-    {
-        
-        this.open=!this.open;
-       
-       if(this.open)
-        {
-            this.playground.style.display="block";
-            this.panelGame.style.display="none";
-            // this.open=false;
-             const test1=new Ball();
-            
-        }
-        
-    }
-   
+// Timer=(startTime,el)=>
+// {
     
+//     // oblicz czas 
+
+//     let h=data.getMinutes();
+//     let s=data.getSeconds();
+//     let ms=data.getMilliseconds();
+//     let xd=el;
+
+//     // document.querySelector(el).innerHTML=`${s}:${ms}`;
+//     //console.log(`${s}:${ms}`);
+
+//     return data;
+
+    
+
+
+// }
+finishGame=(param,time)=>
+{
+    let finishtime=new Date();
+    let diffTimes=new Date(finishtime-time);
+    // console.log(diffTimes.getSeconds());
+    // console.log(diffTimes.getMilliseconds());
+    const emptyObj=new Game();
+    emptyObj.finishPlaying(param,diffTimes);
+
+    
+    
+     
+        
 }
-const xxdd= new Game();
+    
+
+
+
+
+
+
