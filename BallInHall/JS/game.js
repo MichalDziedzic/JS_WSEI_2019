@@ -7,6 +7,7 @@ class Game{
         this.panelGame=document.querySelector('.panelGame');
         this.checkGameBtn();
         this.startTime=null;
+        
         //this.health=3;
         
         
@@ -33,7 +34,7 @@ class Game{
             this.panelGame.style.display="none";
             // this.open=false;
             const startTime=new Date();
-             const test1=new Ball(startTime);
+             const test1=new Ball(startTime,this.finishPlaying);
             
 
              //setInterval(() =>Timer(this.startTime,el),1);
@@ -41,25 +42,28 @@ class Game{
         }
         
     }
-    finishPlaying(param,yourTime)
+    //finishPlaying(param,yourTime)
+    finishPlaying(param)
     {
         
-        if(!this.open)
-        {
-            this.playground.style.display="none";
-             this.panelGame.style.display="block";
-             let finishDiv=document.createElement("div");
-             finishDiv.classList.add("TheEndGame");
-             this.panelGame.append(finishDiv);
+        console.log(param);
+        //let xd=param;
+        // if(!this.open)
+        // {
+        //     this.playground.style.display="none";
+        //      this.panelGame.style.display="block";
+        //      let finishDiv=document.createElement("div");
+        //      finishDiv.classList.add("TheEndGame");
+        //      this.panelGame.append(finishDiv);
             
-             if(param===true)
-             {
-                finishDiv.innerText=`YOU WIN!,your time is :${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()}`;
-             }else
-             {
-                finishDiv.innerText=`YOU LOSE! in time:${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()} TRY AGAIN`;
-             }
-         }
+        //      if(param===true)
+        //      {
+        //         finishDiv.innerText=`YOU WIN!,your time is :${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()}`;
+        //      }else
+        //      {
+        //         finishDiv.innerText=`YOU LOSE! in time:${yourTime.getSeconds()}seconds ,${yourTime.getMilliseconds()} TRY AGAIN`;
+        //      }
+        //  }
      }
     
    

@@ -1,5 +1,5 @@
 class Ball {
-    constructor(startTime) {
+    constructor(startTime,finishPlaying) {
         this.ball=document.querySelector('.ball'),
         this.playGround= document.querySelector('.play-ground'),
         this.hole=document.querySelector('.hole'),
@@ -18,6 +18,7 @@ class Ball {
         this.holeTop=this.hole.offsetTop;
         this.holeLeft=this.hole.offsetLeft;
         this.startTime=startTime;
+        this.finishPlaying=finishPlaying;
         
     }
   
@@ -36,9 +37,9 @@ class Ball {
     
         if(this.y>=265 && this.y<=285 && this.x>=25 && this.x<=53)
         {
-            //console.log('udalo sie !');
+            console.log('udalo sie !');
 
-            finishGame(true,this.startTime);
+            //finishGame(true,this.startTime);
         }
      }
         
@@ -56,7 +57,8 @@ class Ball {
         if(this.health===0)
         {
             console.log('koniec zycia gry');
-            finishGame(false,this.startTime);
+            //finishGame(false,this.startTime);
+            this.finishPlaying(3);
 
         }
         
